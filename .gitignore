@@ -1,0 +1,147 @@
+# ========================================
+# Виртуальное окружение и зависимости
+# ========================================
+venv/
+.venv/
+env/
+ENV/
+virtualenv/
+*.venv/
+pyvenv.cfg
+pip-selfcheck.json
+
+# ========================================
+# Python артефакты
+# ========================================
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# ========================================
+# Базы данных и данные
+# ========================================
+*.db
+*.sqlite
+*.sqlite3
+*.db-journal
+instance/
+*.csv
+*.json
+data/
+datasets/
+uploads/
+media/
+
+# ========================================
+# IDE и редакторы
+# ========================================
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+*.sublime-project
+*.sublime-workspace
+/.vs/
+/.idea/
+/.vscode/
+/.settings/
+/.project
+/.pydevproject
+
+# ========================================
+# ОС и системные файлы
+# ========================================
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+*.stackdump
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.ntvs*
+*.njsproj
+*.sln
+
+# ========================================
+# Логи и временные файлы
+# ========================================
+*.log
+*.tmp
+*.temp
+logs/
+*.log.*
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# ========================================
+# Docker
+# ========================================
+.dockerenv
+docker-compose.override.yml
+
+# ========================================
+# Тесты и покрытие
+# ========================================
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+pytest_cache/
+.pytest_cache/
+coverage.xml
+*.cover
+*.py,cover
+
+# ========================================
+# FastAPI / ASGI специфичное
+# ========================================
+*.pid
+*.sock
+
+# ========================================
+# Секреты и конфигурация
+# ========================================
+.env
+.env.local
+.env.*.local
+secrets.json
+config.local.json
+*.key
+*.pem
+*.crt
+
+# ========================================
+# Дополнительно для вашего проекта
+# ========================================
+# Файлы загрузок (если хранятся локально)
+app/uploads/
+app/media/
+
+# Локальная БД (если SQLite)
+app.db
