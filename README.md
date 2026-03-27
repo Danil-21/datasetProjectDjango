@@ -4,11 +4,11 @@
 
 Backend MVP платформы для организации сбора, обработки и разметки датасетов для задач искусственного интеллекта.
 
-Текущая версия переписана на **Django + Django REST Framework** и сохраняет основной функционал FastAPI‑варианта.
+Текущая версия реализована на **Django + Django REST Framework** (переписано с FastAPI).
 
 Платформа позволяет:
 - создавать проекты по разметке данных,
-- загружать датасеты,
+- загружать датасеты (текст/CSV/JSON) и делать preview,
 - автоматически очищать и подготавливать данные,
 - разбивать данные на задачи,
 - выполнять полуавтоматическую предразметку,
@@ -199,14 +199,14 @@ python manage.py migrate
 python manage.py runserver
 ```
 
-### 6. Открыть API
+### 6. Swagger UI
 ```text
-http://127.0.0.1:8000/
+http://127.0.0.1:8000/swagger/
 ```
 
 ---
 
-## Основные API endpoint'ы (сохранены)
+## Основные API endpoint'ы (актуально)
 
 ### Проекты
 - `POST /projects`
@@ -226,7 +226,7 @@ http://127.0.0.1:8000/
 
 ### AI-предразметка
 - `POST /tasks/{task_id}/auto-label`
-- `POST /projects/{project_id}/tasks/auto-label`
+- `POST /projects/{project_id}/auto-label`
 
 ### Ручная разметка
 - `POST /tasks/{task_id}/annotate`
@@ -307,3 +307,40 @@ http://127.0.0.1:8000/
 - статистика, consensus и экспорт.
 
 Единственное отличие сейчас — это стек (Django + DRF) и способ запуска.
+
+---
+
+## Быстрый сценарий проверки
+
+1. Создать проект  
+`POST /projects`
+
+2. Preview загрузки  
+`POST /projects/{project_id}/preview-upload`
+
+3. Загрузить данные и получить задачи  
+`POST /projects/{project_id}/upload`  
+или файл  
+`POST /projects/{project_id}/upload-file`
+
+4. Создать исполнителей  
+`POST /workers`
+
+5. Авто‑предразметка  
+`POST /projects/{project_id}/auto-label`
+
+6. Авто‑назначение  
+`POST /projects/{project_id}/auto-assign`
+
+7. Ручная разметка  
+`POST /tasks/{task_id}/annotate`
+
+8. Consensus  
+`GET /tasks/{task_id}/consensus`
+
+9. Статистика  
+`GET /projects/{project_id}/stats`
+
+10. Экспорт  
+`GET /projects/{project_id}/export/json`  
+`GET /projects/{project_id}/export/csv`
